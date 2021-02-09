@@ -11,14 +11,16 @@ home = Blueprint('home', __name__,template_folder='templates' ,static_folder='st
 
 @home.route('/')
 def home_page():
-    return render_template('index.html')
+    title='home'
+    
+    return render_template('index.html',title=title)
 
 about = Blueprint('about', __name__,template_folder='templates' ,static_folder='static')
 
 @about.route('/about')
 def skills():
     title = 'About'
-    return render_template('about.html')
+    return render_template('about.html',title= title)
 
 
 
@@ -28,8 +30,7 @@ blog = Blueprint('blog', __name__,template_folder='templates' ,static_folder='st
 @blog.route('/blog')
 def article():
     title = 'Blog'
-    return render_template('blog.html')
-about = Blueprint('about', __name__,template_folder='templates' ,static_folder='static')
+    return render_template('blog.html',title=title)
 
 @blog.route('/blog/myblog')
 def posts():
@@ -43,7 +44,8 @@ contact = Blueprint('contact', __name__,template_folder='templates' ,static_fold
 
 @contact.route('/contact')
 def emails():
-    return render_template('content.html')
+    title ='Contact'
+    return render_template('content.html',title=title)
 
 
 
@@ -51,8 +53,9 @@ projects = Blueprint('projects', __name__,template_folder='templates' ,static_fo
 
 @projects.route('/projects')
 def project():
+    title="Projects"
     
-    return render_template('projects.html')
+    return render_template('projects.html',title=title)
 
 app.register_blueprint(home)
 app.register_blueprint(about)
